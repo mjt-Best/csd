@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mjt.dao.FindCityDao">
+
+    <!--    查询地址sql语句-->
+    <select id="findAllCity" parameterType="int" resultType="city">
+        select * from sys_city where pid = #{pid}
+    </select>
+    <!--    根据id查询地址在前段显示-->
+    <select id="findCityById" parameterType="int" resultType="city">
+        select name from sys_city where id = #{id}
+    </select>
+</mapper>

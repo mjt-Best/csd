@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mjt.dao.LoginUserDao">
+<!--    用户注册-->
+    <insert id="addUser" parameterType="user">
+        insert into sys_user(tel,password,email) value(#{tel},#{password},#{email})
+    </insert>
+<!--    登录功能的查询语句-->
+    <select id="findAllLogin" resultType="user" parameterType="map">
+        select * from sys_user where tel = #{tel} and password = #{password}
+    </select>
+<!--    修改个人用户信息-->
+    <update id="updateUser" parameterType="map">
+        update sys_user set tel = #{newtel},email = #{newemail} where tel = #{tel}
+    </update>
+</mapper>

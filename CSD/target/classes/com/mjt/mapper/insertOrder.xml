@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mjt.dao.InsertOrderDao">
+
+    <!--  提交订单-->
+    <insert id="insertOrder" parameterType="map">
+        insert into sys_order(cid,uid,getid,backid,oprice,status)
+        value (#{cid},#{uid},#{getid},#{backid},#{oprice},#{status})
+    </insert>
+
+    <!--查询全部订单-->
+    <select id="findAll" resultType="ordervo" parameterType="int">
+        SELECT o.id,o.oprice,car.name,cityget.name getCar,cityback.name backCar,o.status
+            FROM sys_order o LEFT JOIN sys_car car ON o.cid = car.id
+	        LEFT JOIN sys_city cityget ON o.getid = cityget.id
+	        LEFT JOIN sys_city cityback ON o.backid = cityback.id
+	        where o.uid = #{uid}
+    </select>
+<!--    删除订单-->
+    <delete id="deleteOrder" parameterType="int">
+        delete from sys_order where id = #{id}
+    </delete>
+</mapper>

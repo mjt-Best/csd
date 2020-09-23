@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+<!--        设置别名-->
+        <typeAlias type="com.mjt.entity.User" alias="user"></typeAlias>
+        <typeAlias type="com.mjt.entity.City" alias="city"></typeAlias>
+        <typeAlias type="com.mjt.entity.Car" alias="car"></typeAlias>
+        <typeAlias type="com.mjt.entity.Order" alias="order"></typeAlias>
+        <typeAlias type="com.mjt.vo.OrderVo" alias="ordervo"></typeAlias>
+    </typeAliases>
+
+<!--    分页功能插件 配置分页PageHelper-->
+    <plugins>
+        <!-- com.github.pagehelper为PageHelper类所在包名 -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- 使用下面的方式配置参数，后面会有所有的参数介绍 -->
+            <property name="helperDialect" value="mysql"/>
+        </plugin>
+    </plugins>
+</configuration>

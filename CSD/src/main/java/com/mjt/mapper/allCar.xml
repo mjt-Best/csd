@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mjt.dao.AllCarDao">
+    <!--    选车列表-->
+<!--    SELECT picture,NAME,TYPE,sitnum,price,number FROM sys_car ORDER BY price desc-->
+
+    <select id="showCar" resultType="car">
+        SELECT * FROM sys_car ORDER BY price desc
+    </select>
+    <!-- 填写核对订单-->
+    <select id="findCarByid" parameterType="int" resultType="car">
+        select * from sys_car  where id = #{id}
+    </select>
+</mapper>
